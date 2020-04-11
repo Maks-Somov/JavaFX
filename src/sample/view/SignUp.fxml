@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerForSignUp">
+    <children>
+        <AnchorPane layoutX="-6.0" layoutY="94.0" prefHeight="306.0" prefWidth="707.0" style="-fx-background-color: #fafafa;">
+            <children>
+                <PasswordField fx:id="passwordField1" layoutX="382.0" layoutY="96.0" prefHeight="36.0" prefWidth="285.0" promptText="пароль" style="-fx-border-radius: 5; -fx-background-color: #fafafa; -fx-border-color: silver;" />
+                <Button fx:id="authSignButton" layoutX="246.0" layoutY="256.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="218.0" style="-fx-background-color: #F39C63;" text="Зарегистрироваться" textFill="WHITE">
+                    <font>
+                        <Font name="Bell MT" size="19.0" />
+                    </font>
+                </Button>
+                <TextField fx:id="signUpName" layoutX="42.0" layoutY="30.0" prefHeight="36.0" prefWidth="285.0" promptText="Имя" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;" />
+            <TextField fx:id="loginField1" layoutX="42.0" layoutY="96.0" prefHeight="36.0" prefWidth="285.0" promptText="логин" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;" />
+            <TextField fx:id="signUpLastName" layoutX="382.0" layoutY="30.0" prefHeight="36.0" prefWidth="285.0" promptText="Фамилия" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;" />
+            <TextField fx:id="loginField3" layoutX="212.0" layoutY="184.0" prefHeight="36.0" prefWidth="285.0" promptText="Страна" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;" />
+            <CheckBox fx:id="signUpCheckBoxMale" layoutX="257.0" layoutY="153.0" mnemonicParsing="false" selected="true" text="Мужчина" />
+            <CheckBox fx:id="signUpCheckBoxFemale" layoutX="382.0" layoutY="153.0" mnemonicParsing="false" text="Женщина" />
+            </children>
+        </AnchorPane>
+        <Label layoutX="320.0" layoutY="27.0" text="Test" textFill="WHITE">
+            <font>
+                <Font name="Bell MT" size="41.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

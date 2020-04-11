@@ -1,4 +1,4 @@
-package sample;
+package sample.controllers;
 
 /**
  * Maks
@@ -23,7 +23,6 @@ public class ControllerForNewFile {
 
     @FXML
     void initialize() {
-        assert imageButton != null : "fx:id=\"imageButton\" was not injected: check your FXML file 'newFile.fxml'.";
 
     }
 }

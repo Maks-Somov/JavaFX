@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerForNewFile">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.ControllerForNewFile">
     <children>
         <AnchorPane layoutX="-6.0" layoutY="94.0" prefHeight="306.0" prefWidth="707.0" style="-fx-background-color: #fafafa;">
             <children>
@@ -17,7 +17,7 @@
                 </Label>
             <ImageView fx:id="imageButton" fitHeight="150.0" fitWidth="200.0" layoutX="279.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@images/star.png" />
+                  <Image url="@../images/star.png" />
                </image>
             </ImageView>
             </children>
