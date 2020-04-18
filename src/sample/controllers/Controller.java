@@ -36,6 +36,17 @@ public class Controller {
 
     @FXML
     void initialize() {
+
+        authSignButton.setOnAction(event -> {
+            String loginText = loginField.getText().trim();
+            String passwordText = passField.getText().trim();
+
+            if(!loginText.equals("") && !passwordText.equals(""))
+                userText(loginText, passwordText);
+            else
+                out.println("You didn't write login of password!");
+        });
+
         loginSignUpButton.setOnAction(event -> {
            loginSignUpButton.getScene().getWindow().hide();
 
@@ -53,6 +64,10 @@ public class Controller {
             stage.setScene(new Scene(root));
             stage.showAndWait();
         });
+
+    }
+
+    private void userText(String loginText, String passwordText) {
 
     }
 }
