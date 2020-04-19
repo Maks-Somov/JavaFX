@@ -75,7 +75,7 @@ public class ControllerForSignUp {
             showAlert(Alert.AlertType.ERROR, owner, "Error!", "You should fill in all the fields!");
         }else{
 
-        if(password.length()>8) {
+        if(password.length()>7) {
             User user = new User(firstName, lastName, userName, password, location, gender);
             dbHandler.signUpUser(user);
             showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
@@ -83,7 +83,6 @@ public class ControllerForSignUp {
         }else {System.out.println("пароль должен быть больше 8 символов");
             showAlert(Alert.AlertType.ERROR, owner, "Error!", "You should write password more than 8 symbols!");
         }
-
         }
     }
 
