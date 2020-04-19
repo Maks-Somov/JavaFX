@@ -21,7 +21,7 @@
                 <TextField fx:id="signUpName" layoutX="42.0" layoutY="30.0" prefHeight="36.0" prefWidth="285.0" promptText="Имя" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;" />
             <TextField fx:id="loginField1" layoutX="42.0" layoutY="96.0" prefHeight="36.0" prefWidth="285.0" promptText="логин" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;" />
             <TextField fx:id="signUpLastName" layoutX="382.0" layoutY="30.0" prefHeight="36.0" prefWidth="285.0" promptText="Фамилия" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;" />
-            <TextField fx:id="loginField3" layoutX="212.0" layoutY="184.0" prefHeight="36.0" prefWidth="285.0" promptText="Страна" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;" />
+            <TextField fx:id="signUpCountry" layoutX="212.0" layoutY="184.0" prefHeight="36.0" prefWidth="285.0" promptText="Страна" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;" />
             <CheckBox fx:id="signUpCheckBoxMale" layoutX="257.0" layoutY="153.0" mnemonicParsing="false" selected="true" text="Мужчина" />
             <CheckBox fx:id="signUpCheckBoxFemale" layoutX="382.0" layoutY="153.0" mnemonicParsing="false" text="Женщина" />
             </children>

@@ -51,7 +51,7 @@ public class Controller {
            loginSignUpButton.getScene().getWindow().hide();
 
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/sample/SignUp.fxml"));
+            loader.setLocation(getClass().getResource("/sample/view/SignUp.fxml"));
 
             try {
                 loader.load();

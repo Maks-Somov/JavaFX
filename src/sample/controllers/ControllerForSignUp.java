@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import sample.datadase.DatabaseHandler;
 
 public class ControllerForSignUp {
 
@@ -37,7 +38,7 @@ public class ControllerForSignUp {
     private TextField signUpLastName;
 
     @FXML
-    private TextField loginField3;
+    private TextField signUpCountry;
 
     @FXML
     private CheckBox signUpCheckBoxMale;
@@ -47,6 +48,11 @@ public class ControllerForSignUp {
 
     @FXML
     void initialize() {
+        DatabaseHandler dbHandler = new DatabaseHandler();
 
+        authSignButton.setOnAction(event -> {
+            dbHandler.signUpUser(signUpName.getText(), signUpLastName.getText(), loginField1.getText(),
+                    passwordField1.getText(), signUpCountry.getText(), "Male");
+        });
     }
 }
