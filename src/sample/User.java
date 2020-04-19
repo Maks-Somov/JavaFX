@@ -12,6 +12,9 @@ public class User {
     private String location;
     private String gender;
 
+    public User() {
+    }
+
     public User(String firstName, String lastName, String userName, String password, String location, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;

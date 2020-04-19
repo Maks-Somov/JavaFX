@@ -9,5 +9,5 @@ package sample.datadase;
         protected String dbPort = "3306";
         protected String dbUser = "root";
         protected String dbPass = "root";
-        protected String dbName = "javafx";
+        protected String dbName = "javafx?useSSL=false";
 }

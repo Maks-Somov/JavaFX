@@ -1,12 +1,15 @@
 package sample.datadase;
 
+import org.omg.CORBA.CODESET_INCOMPATIBLE;
 import sample.User;
+import sun.plugin2.os.windows.SECURITY_ATTRIBUTES;
 
-import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
+
 
 /**
  * Maks
@@ -14,11 +17,11 @@ import java.sql.SQLException;
  */
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
-    private static final String connectionString = "jdbc:mysql://localhost:3306/javafx?useSSL=false";
+//    private static final String connectionString = "jdbc:mysql://localhost:3306/javafx?useSSL=false";
 //    private static final String insert1 = "INSERT INTO users (firstname, lastname, username, password, location, gender) VALUES (?, ?, ?, ?, ?, ?)";
 
-    public Connection getDbConnection() throws ClassNotFoundException,  IllegalAccessException {
-
+    public Connection getDbConnection() throws ClassNotFoundException {
+        String connectionString = "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName;
 //            Class.forName("com.mysql.jdbc.Driver");
 
         try {
@@ -51,9 +54,26 @@ public class DatabaseHandler extends Configs {
             prSt.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
         }
+    }
+
+        public ResultSet getUser(User user){
+            ResultSet resSet = null;
+
+            String select = "SELECT * FROM "+Const.USER_TABLE + " WHERE " + Const.USERS_USERNAME + "=? AND " + Const.USERS_PASSWORD + "=?";
+
+            try {
+                PreparedStatement prSt = getDbConnection().prepareStatement(select);
+
+                prSt.setString(1, user.getUserName());
+                prSt.setString(2, user.getPassword());
+
+                resSet = prSt.executeQuery();
+            } catch (SQLException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            return resSet;
     }
 
 }

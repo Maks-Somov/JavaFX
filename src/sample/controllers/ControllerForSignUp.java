@@ -8,12 +8,11 @@ package sample.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.stage.Window;
 import sample.User;
 import sample.datadase.DatabaseHandler;
+import javafx.scene.control.Alert;
 
 public class ControllerForSignUp {
 
@@ -49,8 +48,6 @@ public class ControllerForSignUp {
 
     @FXML
     void initialize() {
-
-
         authSignButton.setOnAction(event -> {
            signUpNewUser();
         });
@@ -58,6 +55,8 @@ public class ControllerForSignUp {
 
     private void signUpNewUser() {
         DatabaseHandler dbHandler = new DatabaseHandler();
+
+        Window owner = authSignButton.getScene().getWindow();
 
         String firstName = signUpName.getText();
         String lastName = signUpLastName.getText();
@@ -72,10 +71,29 @@ public class ControllerForSignUp {
             gender = "Женский";
         }
 
-        User user = new User(firstName, lastName, userName, password, location, gender);
+        if(firstName.isEmpty() || lastName.isEmpty() || userName.isEmpty() || password.isEmpty() || location.isEmpty()){
+            showAlert(Alert.AlertType.ERROR, owner, "Error!", "You should fill in all the fields!");
+        }else{
 
+        if(password.length()>8) {
+            User user = new User(firstName, lastName, userName, password, location, gender);
+            dbHandler.signUpUser(user);
+            showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
+                    "Welcome " + firstName + " "+ lastName);
+        }else {System.out.println("пароль должен быть больше 8 символов");
+            showAlert(Alert.AlertType.ERROR, owner, "Error!", "You should write password more than 8 symbols!");
+        }
 
-
-        dbHandler.signUpUser(user);
+        }
     }
+
+    private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.initOwner(owner);
+        alert.show();
+    }
+
 }
