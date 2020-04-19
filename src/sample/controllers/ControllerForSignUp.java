@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import sample.User;
 import sample.datadase.DatabaseHandler;
 
 public class ControllerForSignUp {
@@ -48,11 +49,33 @@ public class ControllerForSignUp {
 
     @FXML
     void initialize() {
-        DatabaseHandler dbHandler = new DatabaseHandler();
+
 
         authSignButton.setOnAction(event -> {
-            dbHandler.signUpUser(signUpName.getText(), signUpLastName.getText(), loginField1.getText(),
-                    passwordField1.getText(), signUpCountry.getText(), "Male");
+           signUpNewUser();
         });
+    }
+
+    private void signUpNewUser() {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+
+        String firstName = signUpName.getText();
+        String lastName = signUpLastName.getText();
+        String userName = loginField1.getText();
+        String password = passwordField1.getText();
+        String location = signUpCountry.getText();
+        String gender = "";
+
+        if(signUpCheckBoxMale.isSelected()){
+            gender = "Мужской";
+        } else{
+            gender = "Женский";
+        }
+
+        User user = new User(firstName, lastName, userName, password, location, gender);
+
+
+
+        dbHandler.signUpUser(user);
     }
 }
