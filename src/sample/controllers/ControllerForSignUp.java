@@ -53,9 +53,21 @@ public class ControllerForSignUp {
 
     @FXML
     void initialize() {
+
         authSignButton.setOnAction(event -> {
            signUpNewUser();
-           openNewScene("/sample/view/sample.fxml");
+
+            Stage window = new Stage();
+            authSignButton.getScene().getWindow().hide();
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("/sample/view/sample.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            window.setTitle("Hello");
+            window.setScene(new Scene(root, 700, 400));
+            window.show();
         });
     }
 
@@ -84,8 +96,8 @@ public class ControllerForSignUp {
         if(password.length()>7) {
             User user = new User(firstName, lastName, userName, password, location, gender);
             dbHandler.signUpUser(user);
-            showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
-                    "Welcome " + firstName + " "+ lastName);
+//            showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
+//                    "Welcome " + firstName + " "+ lastName);
         }else {System.out.println("пароль должен быть больше 8 символов");
             showAlert(Alert.AlertType.ERROR, owner, "Error!", "You should write password more than 8 symbols!");
         }
@@ -99,24 +111,6 @@ public class ControllerForSignUp {
         alert.setContentText(message);
         alert.initOwner(owner);
         alert.show();
-    }
-
-    public void openNewScene(String window){
-        authSignButton.getScene().getWindow().hide();
-
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(window));
-
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.showAndWait();
     }
 
 }
