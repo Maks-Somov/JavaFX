@@ -23,7 +23,6 @@ public class DatabaseHandler extends Configs {
     public Connection getDbConnection() throws ClassNotFoundException {
         String connectionString = "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName;
 //            Class.forName("com.mysql.jdbc.Driver");
-
         try {
             dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);
         } catch (SQLException e) {
