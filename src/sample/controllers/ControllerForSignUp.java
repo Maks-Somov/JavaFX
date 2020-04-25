@@ -55,7 +55,8 @@ public class ControllerForSignUp {
     void initialize() {
 
         authSignButton.setOnAction(event -> {
-           signUpNewUser();
+
+            if(signUpNewUser()){
 
             Stage window = new Stage();
             authSignButton.getScene().getWindow().hide();
@@ -67,11 +68,14 @@ public class ControllerForSignUp {
             }
             window.setTitle("Hello");
             window.setScene(new Scene(root, 700, 400));
-            window.show();
+            window.show();}
+            else {
+                System.out.println("gbsrtgbfdb");
+            }
         });
     }
 
-    private void signUpNewUser() {
+    private boolean signUpNewUser() {
         DatabaseHandler dbHandler = new DatabaseHandler();
 
         Window owner = authSignButton.getScene().getWindow();
@@ -91,17 +95,20 @@ public class ControllerForSignUp {
 
         if(firstName.isEmpty() || lastName.isEmpty() || userName.isEmpty() || password.isEmpty() || location.isEmpty()){
             showAlert(Alert.AlertType.ERROR, owner, "Error!", "You should fill in all the fields!");
+            return false;
         }else{
 
         if(password.length()>7) {
             User user = new User(firstName, lastName, userName, password, location, gender);
             dbHandler.signUpUser(user);
-//            showAlert(Alert.AlertType.CONFIRMATION, owner, "Registration Successful!",
-//                    "Welcome " + firstName + " "+ lastName);
-        }else {System.out.println("пароль должен быть больше 8 символов");
+        }
+        else {
+            System.out.println("пароль должен быть больше 8 символов");
             showAlert(Alert.AlertType.ERROR, owner, "Error!", "You should write password more than 8 symbols!");
+            return false;
         }
         }
+       return true;
     }
 
     private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {

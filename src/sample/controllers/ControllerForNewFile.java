@@ -38,8 +38,8 @@ public class ControllerForNewFile {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            window.setTitle("Hello");
-            window.setScene(new Scene(root, 700, 400));
+//            window.setTitle("Hello");
+            window.setScene(new Scene(root));
             window.show();
         });
     }

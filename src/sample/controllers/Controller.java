@@ -51,11 +51,12 @@ public class Controller {
 
             Window owner = authSignButton.getScene().getWindow();
 
-            if(!loginText.equals("") && !passwordText.equals(""))
+//            if(!loginText.equals("") && !passwordText.equals(""))
                 userText(loginText, passwordText);
-            else{
-                out.println("You didn't write login or password!");
-            showAlert(Alert.AlertType.ERROR, owner, "Error!", "You should fill in all the fields!");}
+//            else{
+//                out.println("You didn't write login or password!");
+//            showAlert(Alert.AlertType.ERROR, owner, "Error!", "You should fill in all the fields!");
+//            }
         });
 
         loginSignUpButton.setOnAction(event -> {
