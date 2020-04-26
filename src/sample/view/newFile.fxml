@@ -12,11 +12,11 @@
          <children>
             <Button fx:id="pervButton" layoutX="478.0" layoutY="247.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="93.0" style="-fx-background-color: #F39C63;" text="pervious" textFill="WHITE" />
             <Button fx:id="nextButton" layoutX="594.0" layoutY="247.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="93.0" style="-fx-background-color: #F39C63;" text="next" textFill="WHITE" />
-            <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="14.0" prefHeight="223.0" prefWidth="676.0">
+            <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="14.0" layoutY="14.0" prefHeight="223.0" prefWidth="676.0">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="595.0" prefWidth="677.0">
+                <AnchorPane fx:id="anhorPane" minHeight="0.0" minWidth="0.0" prefHeight="410.0" prefWidth="661.0">
                      <children>
-                        <Label fx:id="text" alignment="TOP_LEFT" prefHeight="409.0" prefWidth="676.0" style="-fx-border-color: #000000; -fx-border-radius: 5;" text="Label" textOverrun="LEADING_ELLIPSIS">
+                        <Label fx:id="text" alignment="TOP_LEFT" prefHeight="410.0" prefWidth="661.0" style="-fx-border-color: #000000; -fx-border-radius: 5;" text="Label" textOverrun="LEADING_ELLIPSIS">
                            <font>
                               <Font size="14.0" />
                            </font>
